@@ -1,0 +1,18 @@
+# Example Render manifest (adjust fields to match Render's current schema)
+# Two ways: (A) Use Render Dashboard to create a Cron Job pointing to the script
+#             (B) Use a manifest like below to declare the cron job(s) declaratively
+
+cron:
+  - name: job-example
+    env: python
+    schedule: "0 6 * * *"   # daily at 06:00 UTC (CRON)
+    # Optional: set plan, region, etc.
+    buildCommand: "pip install -r jobs/job_example/requirements.txt"
+    startCommand: "python jobs/job_example/job_example.py"
+    envVars:
+      - key: EXAMPLE_KEY
+        sync: false
+
+# Note: Render's manifest schema may change. If Render rejects this file, create
+# a Cron Job in the Dashboard and copy the settings there. See
+# https://render.com/docs for latest manifest schema and fields.
