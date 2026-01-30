@@ -5,10 +5,11 @@
 cron:
   - name: job-example
     env: python
-    schedule: "0 6 * * *"   # daily at 06:00 UTC (CRON)
+    schedule: "0 6 * * *"   # daily at 06:00 UTC (CRON) - adjust as needed
     # Optional: set plan, region, etc.
     buildCommand: "pip install -r jobs/job_example/requirements.txt"
     startCommand: "python jobs/job_example/job_example.py"
+    # Do NOT store secrets in this file. Set them in the Render Dashboard (Env > Environment Variables)
     envVars:
       - key: EXAMPLE_KEY
         sync: false
