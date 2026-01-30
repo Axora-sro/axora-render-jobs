@@ -23,6 +23,7 @@ def main() -> int:
     example_val = os.getenv('EXAMPLE_KEY', None)
 
     logger.info('Starting job_example')
+    logger.info('This is example job — logs will show this message when it runs.')
     if not example_val:
         logger.warning('EXAMPLE_KEY not set — using default behavior')
 
